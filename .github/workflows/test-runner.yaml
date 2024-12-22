@@ -5,7 +5,7 @@ jobs:
   init:
     runs-on: self-hosted
     steps:
-      - run: echo "Salut ${{ github }}."
+      - run: echo "Salut Monsieur ${{ github }}."
       - run: echo "Ce workflow s'execute dans le repository ${{ github.repository }}."
       - run: echo "Ce worhflow s'execute sur $Hostname."
       
