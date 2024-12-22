@@ -1,0 +1,13 @@
+name: Doit s'executer dans un custom runner
+on: push
+
+jobs:
+  init:
+    runs-on: start-runner
+    steps:
+      - run: echo "Salut ${{ github }}."
+      - run: echo "Ce workflow s'execute dans le repository ${{ github.repository }}."
+      - run: echo "Ce worhflow s'execute sur $Hostname."
+      
+  
+  
