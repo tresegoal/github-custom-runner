@@ -5,9 +5,11 @@ jobs:
   init:
     runs-on: self-hosted
     steps:
-      - run: echo "Salut monsieur ${{ github }}."
+      - run: echo "Ce job est demarre sur le systeme d<exploitation ${{ runner.os }}."
       - run: echo "Ce workflow s'execute dans le repository ${{ github.repository }}."
-      - run: echo "Ce worhflow s'execute sur $Hostname."
+      - run: echo "La branche utilisee est ${{ github.ref}}."
+      - name: checkout le repository
+        uses: actions/checkout@v4
       
   
   
