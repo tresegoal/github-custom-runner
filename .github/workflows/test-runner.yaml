@@ -3,7 +3,7 @@ on: push
 
 jobs:
   init:
-    runs-on: start-runner
+    runs-on: self-hosted
     steps:
       - run: echo "Salut ${{ github }}."
       - run: echo "Ce workflow s'execute dans le repository ${{ github.repository }}."
