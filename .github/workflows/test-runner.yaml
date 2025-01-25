@@ -6,7 +6,7 @@ on:
 
 jobs:
   init:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Ce job est demarre sur le systeme d<exploitation ${{ runner.os }}."
       - run: echo "Ce workflow s'execute dans le repository ${{ github.repository }}."
