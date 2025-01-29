@@ -23,7 +23,7 @@ jobs:
         run: |
           pwd
           cd /home/runner/work/github-custom-runner/github-custom-runner
-          zip -r ${{github.sha}}.zip
+          zip -r ../${{github.sha}}.zip .
       - name: archieve artifact
         uses: actions/upload-artifact@v4
         with:
