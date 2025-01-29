@@ -22,7 +22,7 @@ jobs:
       - name: create zip bundle
         run: |
           rm -rf ${{github.sha}}.zip
-          zip -r ../${{github.sha}}.zip
+          zip -r ${{github.sha}}.zip
       - name: archieve artifact
         uses: actions/upload-artifact@v4
         with:
