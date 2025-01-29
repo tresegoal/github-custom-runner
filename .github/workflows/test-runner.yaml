@@ -12,11 +12,29 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Ce job est demarre sur le systeme d<exploitation ${{ runner.os }}."
-      - run: echo "Ce workflow s'execute dans le repository ${{ github.repository }}."
-      - run: echo "La branche utilisee est ${{ github.ref}}."
-      - name: checkout le repository
-        uses: actions/checkout@v4
+      - name: checkout the code
+        uses: actions/checkout@v2
+      - name: set up java
+        uses: actions/setup-java@v4
+        with: 
+          distrubution: "microsoft"
+          java-version: "21"
+          cache: 'gradle'
+          cache-dependency-path: | # optional
+            sub-project/*.gradle*
+            sub-project/**/gradle-wrapper.properties
+      - name: build 
+        run: ./gradlew build --no-daemon
+      - name: create zip bundle
+        run: |
+          rm -rf ${{github.sha}}.zip
+          zip -r ../${{github.sha}}.zip
+      - name: archieve artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: ${{github.sha}}.zip
+          
       
   
   
