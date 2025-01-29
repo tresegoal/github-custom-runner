@@ -19,8 +19,6 @@ jobs:
         with: 
           distribution: "microsoft"
           java-version: "21"
-      - name: build 
-        run: ./gradlew build --no-daemon
       - name: create zip bundle
         run: |
           rm -rf ${{github.sha}}.zip
