@@ -21,7 +21,7 @@ jobs:
           java-version: "21"
       - name: create zip bundle
         run: |
-          echo 'le chemin est $(pwd)'
+          echo 'le chemin est $PWD'
           zip -r ${{github.sha}}.zip
       - name: archieve artifact
         uses: actions/upload-artifact@v4
