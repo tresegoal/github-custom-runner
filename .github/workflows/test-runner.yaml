@@ -1,8 +1,12 @@
 name: Doit s'executer dans un custom runner
 on: 
-  schedule: [{cron: "0 0 * * *"}]
+  schedule: 
+    - cron: "0 08 * * *"
   workflow_dispatch:
-  push: {branches: ["master", "main"]}
+  push: 
+    branches: 
+      - master
+      - main
 
 jobs:
   init:
