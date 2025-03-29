@@ -24,8 +24,8 @@ jobs:
       - name: create zip bundle
         run: |
           pwd
-          echo ZIP_PATH
-          cd ZIP_PATH
+          echo $ZIP_PATH
+          cd $ZIP_PATH
           zip -r ../${{github.sha}}.zip .
       - name: archieve artifact
         uses: actions/upload-artifact@v4
