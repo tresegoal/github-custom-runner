@@ -1,7 +1,7 @@
 name: Doit s'executer dans un custom runner
 on: 
-  schedule: 
-    - cron: "0 08 * * *"
+  #schedule: 
+  #  - cron: "0 08 * * *"
   workflow_dispatch:
   push: 
     branches: 
@@ -25,6 +25,8 @@ jobs:
         run: |
           pwd
           echo $ZIP_PATH
+          echo ${{ LANGAGE }}
+          echo ${{ secrets.PRIVATE_KEY}}
           cd $ZIP_PATH
           zip -r ../${{github.sha}}.zip .
       - name: archieve artifact
