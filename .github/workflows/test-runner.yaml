@@ -7,6 +7,8 @@ on:
     branches: 
       - master
       - main
+env:
+  ZIP_PATH: /home/runner/work/github-custom-runner/github-custom-runner
 
 jobs:
   init:
@@ -22,7 +24,8 @@ jobs:
       - name: create zip bundle
         run: |
           pwd
-          cd /home/runner/work/github-custom-runner/github-custom-runner
+          echo ZIP_PATH
+          cd ZIP_PATH
           zip -r ../${{github.sha}}.zip .
       - name: archieve artifact
         uses: actions/upload-artifact@v4
