@@ -25,7 +25,7 @@ jobs:
         run: |
           pwd
           echo $ZIP_PATH
-          echo ${{ secrets.LANGAGE }}
+          echo $LANGAGE
           echo ${{ secrets.PRIVATE_KEY}}
           cd $ZIP_PATH
           zip -r ../${{github.sha}}.zip .
