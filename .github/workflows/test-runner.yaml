@@ -31,10 +31,7 @@ jobs:
           cd ${{ env.ZIP_PATH }}
           if ($env:RUNNER_OS -eq "Windows") {
             Compress-Archive -Path ${{ env.ZIP_PATH }} -DestinationPath ${{ env.ZIP_PATH }}/${{github.sha}}.zip
-          }
-          else {
-            zip -r ../${{ github.sha }}.zip 
-          }
+          } else zip -r ../${{ github.sha }}.zip 
           
       - name: archieve artifact
         uses: actions/upload-artifact@v4
