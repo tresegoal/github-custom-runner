@@ -31,7 +31,7 @@ jobs:
             Compress-Archive -Path ${{ env.ZIP_PATH }} -DestinationPath ${{ env.ZIP_PATH }}/${{github.sha}}.zip
           }
           else {zip -r ../${{github.sha}}.zip }
-          shell: pwsh
+        shell: pwsh
       - name: archieve artifact
         uses: actions/upload-artifact@v4
         with:
