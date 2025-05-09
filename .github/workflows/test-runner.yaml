@@ -24,16 +24,15 @@ jobs:
       - name: create zip bundle
         run: |
           pwd
-          echo $ZIP_PATH
-          echo $LANGAGE
+          echo ${{ env.ZIP_PATH }}
           echo ${{ secrets.PRIVATE_KEY}}
-          cd $ZIP_PATH
+          cd ${{ env.ZIP_PATH }}
           zip -r ../${{github.sha}}.zip .
       - name: archieve artifact
         uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: env.ZIP_PATH
+          path: ${{ env.ZIP_PATH }}
           overwrite: true
           
       
