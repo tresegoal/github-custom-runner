@@ -28,8 +28,7 @@ jobs:
           echo ${{ secrets.PRIVATE_KEY}}
           cd ${{ env.ZIP_PATH }}
           if ($env:RUNNER_OS -eq "Windows") {
-            Compress-Archive -Path ${{ env.ZIP_PATH }} 
-            -DestinationPath ../${{github.sha}}.zip
+            Compress-Archive -Path ${{ env.ZIP_PATH }} -DestinationPath ${{ env.ZIP_PATH }}/${{github.sha}}.zip
           }
           else {zip -r ../${{github.sha}}.zip }
           shell: pwsh
