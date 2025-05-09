@@ -28,6 +28,7 @@ jobs:
       - name: create zip bundle with os
         run: |
           pwd
+          echo ${{ runner.os }}
           echo ${{ env.ZIP_PATH }}
           echo ${{ secrets.PRIVATE_KEY}}
           cd ${{ env.ZIP_PATH }}
@@ -35,7 +36,6 @@ jobs:
             Compress-Archive -Path ${{ env.ZIP_PATH }} -DestinationPath ${{ env.ZIP_PATH }}/${{github.sha}}.zip
           }
           else {
-            echo ${{ github.sha }}
             zip -r ../${{ github.sha }}.zip 
           }
           
