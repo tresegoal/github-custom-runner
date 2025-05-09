@@ -12,7 +12,11 @@ env:
 
 jobs:
   init:
-    runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, self-hosted]
+        
     steps:
       - name: checkout the code
         uses: actions/checkout@v2
