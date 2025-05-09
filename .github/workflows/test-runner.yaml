@@ -21,13 +21,18 @@ jobs:
         with: 
           distribution: "microsoft"
           java-version: "21"
-      - name: create zip bundle
+      - name: create zip bundle with os
         run: |
           pwd
           echo ${{ env.ZIP_PATH }}
           echo ${{ secrets.PRIVATE_KEY}}
           cd ${{ env.ZIP_PATH }}
-          zip -r ../${{github.sha}}.zip .
+          if ($env:RUNNER_OS -eq "Windows") {
+            Compress-Archive -Path ${{ env.ZIP_PATH }} 
+            -DestinationPath ../${{github.sha}}.zip
+          }
+          else {zip -r ../${{github.sha}}.zip }
+          shell: pwsh
       - name: archieve artifact
         uses: actions/upload-artifact@v4
         with:
