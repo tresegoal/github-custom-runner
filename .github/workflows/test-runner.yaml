@@ -12,7 +12,7 @@ env:
 
 jobs:
   init:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     
     steps:
       - name: checkout the code
